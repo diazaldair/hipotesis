@@ -1,0 +1,56 @@
+# Generar datos
+muestra <- rnorm(25, mean = 9.25, sd = 4.5)
+ 
+# Prueba de normalidad
+shapiro_test <- shapiro.test(muestra)
+cat("Estadístico Shapiro-Wilk:", shapiro_test$statistic, "p-valor:", shapiro_test$p.value, "\n")
+ 
+# Histograma
+hist(muestra)
+# Boxplot
+boxplot(muestra)
+
+
+# Número a comparar
+numero <- 0.03958274  
+umbral <- 0.05
+
+# Comparación
+if (numero < umbral) {
+  cat(numero, "es menor que", umbral, "\n")
+} else {
+  cat(numero, "no es menor que", umbral, "\n")
+}
+
+
+#//////////////////////////////////////////////////////////////////////////
+
+
+# Generar datos
+muestra <- rnorm(25, mean = 9.25, sd = 4.5)
+
+# Parámetro de comparación
+mu <- 10
+
+# Prueba de Wilcoxon
+wilcoxon_test <- wilcox.test(muestra, mu = mu, alternative = "less")
+
+# Mostrar resultados
+cat("Estadístico Wilcoxon:", wilcoxon_test$statistic, "\n")
+cat("p-valor:", wilcoxon_test$p.value, "\n")
+
+
+
+# Número a comparar
+numero <- 0.01708689
+umbral <- 0.05
+
+# Comparación
+es_menor <- numero < umbral
+
+# Mostrar resultado
+if (es_menor) {
+  cat(numero, "es menor que", umbral, "\n")
+} else {
+  cat(numero, "no es menor que", umbral, "\n")
+}
